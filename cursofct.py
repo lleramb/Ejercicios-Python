@@ -78,8 +78,9 @@ Created on Sat Apr 18 22:47:46 2020
 
 #   print(tupla)
 
-def funcion(): 
-    return "Hola Mundo" 
+# def funcion(): 
+#     return "Hola Mundo" 
 
-mensaje = funcion() 
-print (mensaje)
+# mensaje = funcion() 
+# print (mensaje)
+    print(tupla)
