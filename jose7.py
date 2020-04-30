@@ -5,51 +5,36 @@ Created on Wed Apr 29 20:00:07 2020
 @author: josel
 """
 
-def cifracesar(texto,clave):
-      
-texto = input("Mensaje > ").upper()
+
+abecedario=['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 
-clave = int(input("Desplazamiento > "))
-
-
-abc = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
-
-
-cifrado = ""
-
-
-
-for l in texto:
-
-    if l in abc:
-        pos_letra = abc.index(l)
-      
-        nueva_pos = (pos_letra + clave) % len(abc)
-        cifrado+= abc[nueva_pos]
-    else:
-        
-        cifrado+= l
-
-print("Mensaje cifrado:", cifrado)
-
-texto = input("Mensaje cifrado > ").upper()
-
-
-abc = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
-
-
-for i in range(28):
-    descifrado = ""
-    for l in texto:
-        if l in abc:
-            pos_letra = abc.index(l)
-            nueva_pos = (pos_letra - i) % len(abc)
-            descifrado += abc[nueva_pos]
-        else:
-            descifrado+= l
-    msj = (f"ROT-{i}:", descifrado)
-    print(msj)
+#Aqui pongo toda la parte de codigo backend
+def cifracesar(texto,key):
     
+    texto_cifrado=""
 
-      print (cifracesar)
+    for letra in texto:
+        
+        nueva_posicion=(abecedario.index(letra)+key)
+        
+      
+        if (nueva_posicion>26):
+            nueva_posicion=nueva_posicion-26
+            nueva_posicion=nueva_posicion-1
+
+        letra_cifrada=abecedario[nueva_posicion]
+        texto_cifrado+=letra_cifrada
+
+    return texto_cifrado
+
+   
+#Voy a poner todos los print aqui
+print("BIENVENIDO A MI CIFRADOR CÉSAR")
+
+texto_claro=input("Escribe el texto a cifrar:")
+clave=int(input("Escribe la clave de cifrado (un número del 1 al 27):"))
+
+
+cifrado=cifracesar(texto_claro,clave)
+print ("El texto cifrado es:",cifrado)
